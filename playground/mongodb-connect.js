@@ -9,43 +9,15 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) => {
 
     const db = client.db('TodoApp');
 
-    // db.collection('Todos').find({
-    //     _id: new ObjectID('5bece1cc9bfadfdacaf2650e')
-    // }).toArray().then((docs) => {
-    //     console.log('Todos');
-    //     console.log(JSON.stringify(docs, undefined, 2));
-    // }, (err) => {
-    //     if (err) {
-    //         return console.log('Unable to fetch todos', err);
-    //     }
-    // });
-
-    // db.collection('Users').insertOne({
-    //     name: 'Barret',
-    //     age: 48,
-    //     location: 'Melbourne'
-    // }, err => {
-    //     if (err) {
-    //         return console.log('Unable to insert user', err);
-    //     }
-    // });
-
-    // db.collection('Todos').find().count().then((count) => {
-    //     console.log(`Todos count ${count}`);
-    // }, (err) => {
-    //     if (err) {
-    //         return console.log('Unable to fetch todos', err);
-    //     }
-    // });
-
-    db.collection('Users').find({name: 'Gary'}).toArray().then((docs) => {
-        console.log(`Todos`);
-        console.log(JSON.stringify(docs, undefined, 2));
-    }, (err) => {
+    db.collection('Users').insertOne({
+        name: 'Barrett',
+        age: 48,
+        location: 'Melbourne'
+    }, err => {
         if (err) {
-            return console.log('Unable to fetch todos', err);
+            return console.log('Unable to insert user', err);
         }
     });
 
-    // client.close();
+    client.close();
 });
